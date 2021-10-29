@@ -1,0 +1,83 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="close()">
+        <ion-icon color="danger" slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Dodaj</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="false" >
+  <form [formGroup]="orderForm" (ngSubmit)="save()">
+    <ion-item>
+      <ion-grid class="ion-no-padding" fixed>
+        <ion-row>
+          <ion-col size="8">
+            <ion-label position="stacked" class="ion-no-margin ion-no-padding"><h1>Numer telefonu</h1></ion-label>
+            <ion-input formControlName="phone" type="number"></ion-input>
+          </ion-col>
+          <ion-col size="2">
+            <ion-button fill="clear" size="large" (click)="openCallLog()">
+              <ion-icon  slot="icon-only" name="call"></ion-icon>
+            </ion-button>
+            </ion-col>
+          <ion-col size="2">
+            <ion-button fill="clear" size="large" (click)="pickFromContacts()">
+              <ion-icon slot="icon-only" name="person-circle-outline"></ion-icon>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    <ng-container *ngIf="orderForm.controls.phone.touched">
+      <ion-note *ngIf="orderForm.controls.phone.errors.required" color="danger">
+        <p class="ion-text-center ion-no-margin">Pole jest wymagane</p>
+      </ion-note>
+    </ng-container>
+    <ion-item>
+      <ion-label position="stacked"><h1>Adres</h1></ion-label>
+      <ion-input formControlName="address" type="text"></ion-input>
+    </ion-item>
+    <ng-container *ngIf="orderForm.controls.address.touched">
+      <ion-note *ngIf="orderForm.controls.address.errors.required" color="danger">
+        <p class="ion-text-center ion-no-margin">Pole jest wymagane</p>
+      </ion-note>
+    </ng-container>
+    <ion-item>
+      <ion-label position="stacked"><h1>Ilość[mp]</h1></ion-label>
+      <ion-input formControlName="amount" type="number"></ion-input>
+    </ion-item>
+    <ng-container *ngIf="orderForm.controls.amount.touched">
+      <ion-note *ngIf="orderForm.controls.amount.errors.required" color="danger">
+        <p class="ion-text-center ion-no-margin">Pole jest wymagane</p>
+      </ion-note>
+    </ng-container>
+    <ion-item>
+      <ion-label position="stacked"><h1>Cena[zł]</h1></ion-label>
+      <ion-input formControlName="cost" type="number"></ion-input>
+    </ion-item>
+    <ng-container *ngIf="orderForm.controls.cost.touched">
+      <ion-note *ngIf="orderForm.controls.cost.errors.required" color="danger">
+        <p class="ion-text-center ion-no-margin">Pole jest wymagane</p>
+      </ion-note>
+    </ng-container>
+    <ion-item>
+      <ion-label position="stacked"><h1>Sortyment</h1></ion-label>
+      <ion-input formControlName="type" type="text"></ion-input>
+    </ion-item>
+    <ng-container *ngIf="orderForm.controls.type.touched">
+      <ion-note *ngIf="orderForm.controls.type.errors.required" color="danger">
+        <p class="ion-text-center ion-no-margin">Pole jest wymagane</p>
+      </ion-note>
+    </ng-container>
+    <ion-item>
+      <ion-label position="stacked"><h1>Uwagi</h1></ion-label>
+      <ion-input formControlName="description" type="text"></ion-input>
+    </ion-item>
+    <ion-button block color="primary" type="submit" expand="full">
+      Zapisz
+    </ion-button>
+  </form>
+</ion-content>
