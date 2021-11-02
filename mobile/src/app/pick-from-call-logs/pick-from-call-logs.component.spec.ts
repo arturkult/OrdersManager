@@ -1,3 +1,4 @@
+import { CallLog } from '@ionic-native/call-log/ngx';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
@@ -10,7 +11,8 @@ describe('PickFromCallLogsComponent', () => {
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ PickFromCallLogsComponent ],
-      imports: [IonicModule.forRoot()]
+      imports: [IonicModule.forRoot()],
+      providers: [CallLog]
     }).compileComponents();
 
     fixture = TestBed.createComponent(PickFromCallLogsComponent);

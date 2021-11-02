@@ -1,8 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { CallNumber } from '@ionic-native/call-number';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { Order } from '../services/order.service';
-import { ViewOrderPage } from '../view-message/view-message.page';
+import { OrderDetailsPage } from '../order-details/order-details.page';
+import { EventEmitter } from 'stream';
 
 @Component({
   selector: 'app-message',
@@ -19,13 +19,6 @@ export class OrderComponent implements OnInit {
   isIos() {
     const win = window as any;
     return win && win.Ionic && win.Ionic.mode === 'ios';
-  }
-
-  async openModal(){
-    var a = await this.modalController.create({
-      component: ViewOrderPage
-    });
-    await a.present();
   }
 
   async call(){

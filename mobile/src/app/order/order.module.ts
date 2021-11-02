@@ -8,11 +8,12 @@ import { IonicModule } from '@ionic/angular';
 import { OrderComponent } from './order.component';
 import { CallLog } from '@ionic-native/call-log/ngx';
 import { Contacts } from '@ionic-native/contacts';
+import { OrderDetailsPage } from '../order-details/order-details.page';
 
 @NgModule({
   imports: [ CommonModule, FormsModule, IonicModule, RouterModule, ReactiveFormsModule],
-  declarations: [OrderComponent],
-  exports: [OrderComponent],
+  declarations: [OrderComponent, OrderDetailsPage],
+  exports: [OrderComponent, OrderDetailsPage],
   providers: [CallLog, Contacts]
 })
 export class OrderComponentModule {}

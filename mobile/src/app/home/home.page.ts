@@ -1,7 +1,7 @@
+import { OrderDetailsPage } from './../order-details/order-details.page';
 import { Component } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { OrderService, Order } from '../services/order.service';
-import { ViewOrderPage } from '../view-message/view-message.page';
 
 @Component({
   selector: 'app-home',
@@ -24,7 +24,15 @@ export class HomePage {
 
   async openCreateModal() {
     const modal = await this.modalController.create({
-      component: ViewOrderPage
+      component: OrderDetailsPage
+    });
+    await modal.present();
+  }
+
+  
+  async openDetailsModal(){
+    const modal = await this.modalController.create({
+      component: OrderDetailsPage
     });
     await modal.present();
   }

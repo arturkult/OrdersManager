@@ -32,7 +32,7 @@
       </ion-grid>
     </ion-item>
     <ng-container *ngIf="orderForm.controls.phone.touched">
-      <ion-note *ngIf="orderForm.controls.phone.errors.required" color="danger">
+      <ion-note *ngIf="orderForm.controls.phone.errors?.required" color="danger">
         <p class="ion-text-center ion-no-margin">Pole jest wymagane</p>
       </ion-note>
     </ng-container>
@@ -41,7 +41,7 @@
       <ion-input formControlName="address" type="text"></ion-input>
     </ion-item>
     <ng-container *ngIf="orderForm.controls.address.touched">
-      <ion-note *ngIf="orderForm.controls.address.errors.required" color="danger">
+      <ion-note *ngIf="orderForm.controls.address.errors?.required" color="danger">
         <p class="ion-text-center ion-no-margin">Pole jest wymagane</p>
       </ion-note>
     </ng-container>
@@ -50,7 +50,7 @@
       <ion-input formControlName="amount" type="number"></ion-input>
     </ion-item>
     <ng-container *ngIf="orderForm.controls.amount.touched">
-      <ion-note *ngIf="orderForm.controls.amount.errors.required" color="danger">
+      <ion-note *ngIf="orderForm.controls.amount.errors?.required" color="danger">
         <p class="ion-text-center ion-no-margin">Pole jest wymagane</p>
       </ion-note>
     </ng-container>
@@ -59,7 +59,7 @@
       <ion-input formControlName="cost" type="number"></ion-input>
     </ion-item>
     <ng-container *ngIf="orderForm.controls.cost.touched">
-      <ion-note *ngIf="orderForm.controls.cost.errors.required" color="danger">
+      <ion-note *ngIf="orderForm.controls.cost.errors?.required" color="danger">
         <p class="ion-text-center ion-no-margin">Pole jest wymagane</p>
       </ion-note>
     </ng-container>
@@ -68,7 +68,7 @@
       <ion-input formControlName="type" type="text"></ion-input>
     </ion-item>
     <ng-container *ngIf="orderForm.controls.type.touched">
-      <ion-note *ngIf="orderForm.controls.type.errors.required" color="danger">
+      <ion-note *ngIf="orderForm.controls.type.errors?.required" color="danger">
         <p class="ion-text-center ion-no-margin">Pole jest wymagane</p>
       </ion-note>
     </ng-container>

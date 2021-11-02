@@ -17,14 +17,14 @@ export interface Order {
   providedIn: 'root'
 })
 export class OrderService {
-  public orders: Order[] = [
+  private orders: Order[] = [
     {
       phone: faker.phone.phoneNumber('###-###-###'),
       address: faker.address.streetAddress(),
       deliveryDate: new Date().toLocaleDateString(),
       id: 0,
       createDate: new Date().toLocaleDateString(),
-      description: "uwagi",
+      description: 'uwagi',
       amount: 5,
       cost: 450,
       type: 'klepki'
@@ -35,7 +35,7 @@ export class OrderService {
       deliveryDate: new Date().toLocaleDateString(),
       id: 1,
       createDate: new Date().toLocaleDateString(),
-      description: "uwagi",
+      description: 'uwagi',
       amount: 5,
       cost: 450,
       type: 'klepki'
@@ -46,7 +46,7 @@ export class OrderService {
       deliveryDate: new Date().toLocaleDateString(),
       id: 2,
       createDate: new Date().toLocaleDateString(),
-      description: "uwagi",
+      description: 'uwagi',
       amount: 5,
       cost: 450,
       type: 'klepki'
@@ -57,7 +57,7 @@ export class OrderService {
       deliveryDate: new Date().toLocaleDateString(),
       id: 3,
       createDate: new Date().toLocaleDateString(),
-      description: "uwagi",
+      description: 'uwagi',
       amount: 5,
       cost: 450,
       type: 'klepki'
@@ -68,7 +68,7 @@ export class OrderService {
       deliveryDate: new Date().toLocaleDateString(),
       id: 4,
       createDate: new Date().toLocaleDateString(),
-      description: "uwagi",
+      description: 'uwagi',
       amount: 5,
       cost: 450,
       type: 'klepki'
@@ -79,7 +79,7 @@ export class OrderService {
       deliveryDate: new Date().toLocaleDateString(),
       id: 5,
       createDate: new Date().toLocaleDateString(),
-      description: "uwagi",
+      description: 'uwagi',
       amount: 5,
       cost: 450,
       type: 'klepki'
@@ -90,7 +90,7 @@ export class OrderService {
       deliveryDate: new Date().toLocaleDateString(),
       id: 6,
       createDate: new Date().toLocaleDateString(),
-      description: "uwagi",
+      description: 'uwagi',
       amount: 5,
       cost: 450,
       type: 'klepki'
@@ -101,7 +101,7 @@ export class OrderService {
       deliveryDate: new Date().toLocaleDateString(),
       id: 7,
       createDate: new Date().toLocaleDateString(),
-      description: "uwagi",
+      description: 'uwagi',
       amount: 5,
       cost: 450,
       type: 'klepki'
@@ -116,5 +116,13 @@ export class OrderService {
 
   public getOrderById(id: number): Order {
     return this.orders[id];
+  }
+
+  public addOrder(order: Order) {
+    this.orders.push({
+      ...order,
+      createDate: new Date().toLocaleDateString(),
+      id: this.orders.length
+    });
   }
 }
