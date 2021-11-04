@@ -9,7 +9,7 @@ import { OrderService, Order } from '../services/order.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  constructor(private data: OrderService,
+  constructor(private orderService: OrderService,
     private modalController: ModalController) {}
 
   refresh(ev) {
@@ -19,7 +19,7 @@ export class HomePage {
   }
 
   getOrders(): Order[] {
-    return this.data.getOrders();
+    return this.orderService.getOrders();
   }
 
   async openCreateModal() {
@@ -28,7 +28,6 @@ export class HomePage {
     });
     await modal.present();
   }
-
   
   async openDetailsModal(){
     const modal = await this.modalController.create({
@@ -36,4 +35,8 @@ export class HomePage {
     });
     await modal.present();
   }
+
+  remove = (id: number) => this.orderService.removeOrder(id);
+
+  deliver = (id: number) => this.orderService.deliverOrder(id);
 }

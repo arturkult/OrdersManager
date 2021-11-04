@@ -65,7 +65,10 @@
     </ng-container>
     <ion-item>
       <ion-label position="stacked"><h1>Sortyment</h1></ion-label>
-      <ion-input formControlName="type" type="text"></ion-input>
+        <ion-select value="peperoni" multiple="false" placeholder="Wybierz sortyment">
+          <ion-select-option [value]="null" selected>Wybierz</ion-select-option>
+          <ion-select-option *ngFor="let assortment of assortments" [value]="assortment.id">{{assortment.name}}</ion-select-option>
+        </ion-select>
     </ion-item>
     <ng-container *ngIf="orderForm.controls.type.touched">
       <ion-note *ngIf="orderForm.controls.type.errors?.required" color="danger">

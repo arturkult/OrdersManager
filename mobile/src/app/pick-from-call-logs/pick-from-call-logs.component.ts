@@ -19,7 +19,6 @@ export class PickFromCallLogsComponent implements OnInit {
     }
     this.callLogs = await this.callLog.getCallLog([]);
     this.callLogs = this.callLogs.slice(0, 30);
-    console.log(this.callLogs);
   }
 
   async close(){
@@ -29,5 +28,4 @@ export class PickFromCallLogsComponent implements OnInit {
   async pick(log: {number: number, name: string}){
     await this.modalController.dismiss(log.number);
   }
-
 }

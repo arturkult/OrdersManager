@@ -20,7 +20,11 @@
   </ion-header>
   
   <ion-list>
-    <app-message *ngFor="let order of getOrders()" (click)="openDetailsModal()" [order]="order"></app-message>
+    <app-order *ngFor="let order of getOrders()" 
+    (click)="openDetailsModal()" 
+    [order]="order"
+    (remove)="remove($event)"
+    (deliver)="deliver($event)"></app-order>
   </ion-list>
 </ion-content>
 

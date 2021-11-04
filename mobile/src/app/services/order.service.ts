@@ -1,6 +1,12 @@
 import { Injectable } from '@angular/core';
 import * as faker from 'faker/locale/pl';
 
+export enum OrderStatus {
+  New,
+  Delivered, 
+  Deleted
+}
+
 export interface Order {
   phone: string;
   address: string;
@@ -11,6 +17,7 @@ export interface Order {
   amount: number;
   cost: number;
   type: string;
+  status: OrderStatus;
 }
 
 @Injectable({
@@ -27,7 +34,8 @@ export class OrderService {
       description: 'uwagi',
       amount: 5,
       cost: 450,
-      type: 'klepki'
+      type: 'klepki',
+      status: OrderStatus.New
     },
     {
       phone: faker.phone.phoneNumber('###-###-###'),
@@ -38,7 +46,8 @@ export class OrderService {
       description: 'uwagi',
       amount: 5,
       cost: 450,
-      type: 'klepki'
+      type: 'klepki',
+      status: OrderStatus.New
     },
     {
       phone: faker.phone.phoneNumber('###-###-###'),
@@ -49,7 +58,8 @@ export class OrderService {
       description: 'uwagi',
       amount: 5,
       cost: 450,
-      type: 'klepki'
+      type: 'klepki',
+      status: OrderStatus.New
     },
     {
       phone: faker.phone.phoneNumber('###-###-###'),
@@ -60,7 +70,8 @@ export class OrderService {
       description: 'uwagi',
       amount: 5,
       cost: 450,
-      type: 'klepki'
+      type: 'klepki',
+      status: OrderStatus.New
     },
     {
       phone: faker.phone.phoneNumber('###-###-###'),
@@ -71,7 +82,8 @@ export class OrderService {
       description: 'uwagi',
       amount: 5,
       cost: 450,
-      type: 'klepki'
+      type: 'klepki',
+      status: OrderStatus.New
     },
     {
       phone: faker.phone.phoneNumber('###-###-###'),
@@ -82,7 +94,8 @@ export class OrderService {
       description: 'uwagi',
       amount: 5,
       cost: 450,
-      type: 'klepki'
+      type: 'klepki',
+      status: OrderStatus.New
     },
     {
       phone: faker.phone.phoneNumber('###-###-###'),
@@ -93,7 +106,8 @@ export class OrderService {
       description: 'uwagi',
       amount: 5,
       cost: 450,
-      type: 'klepki'
+      type: 'klepki',
+      status: OrderStatus.New
     },
     {
       phone: faker.phone.phoneNumber('###-###-###'),
@@ -104,7 +118,8 @@ export class OrderService {
       description: 'uwagi',
       amount: 5,
       cost: 450,
-      type: 'klepki'
+      type: 'klepki',
+      status: OrderStatus.New
     }
   ];
 
@@ -124,5 +139,14 @@ export class OrderService {
       createDate: new Date().toLocaleDateString(),
       id: this.orders.length
     });
+  }
+
+  public deliverOrder(id: number) {
+    this.orders.find(order=> order.id === id).status = OrderStatus.Delivered;
+  }
+
+  public removeOrder(id: number) {
+    this.orders.find(order=> order.id === id).status = OrderStatus.Deleted;
+
   }
 }

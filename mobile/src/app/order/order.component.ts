@@ -1,18 +1,15 @@
-import { Component, OnInit, Input, Output } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Order } from '../services/order.service';
-import { OrderDetailsPage } from '../order-details/order-details.page';
-import { EventEmitter } from 'stream';
 
 @Component({
-  selector: 'app-message',
+  selector: 'app-order',
   templateUrl: './order.component.html',
   styleUrls: ['./order.component.scss'],
 })
 export class OrderComponent implements OnInit {
   @Input() order: Order;
-
-  constructor(private modalController: ModalController) { }
+  @Output('remove') removeEmitter = new EventEmitter<number>();
+  @Output('deliver') deliverEmitter = new EventEmitter<number>();
 
   ngOnInit() {}
 
@@ -24,4 +21,7 @@ export class OrderComponent implements OnInit {
   async call(){
     window.open('tel:' + this.order.phone);
   }
+
+  remove = (id: number) => this.removeEmitter.emit(id);
+  deliver = (id: number) => this.deliverEmitter.emit(id);
 }

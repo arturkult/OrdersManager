@@ -15,16 +15,16 @@ export class OrderDetailsPage implements OnInit {
   @Input() public order: Order;
   orderForm: FormGroup;
 
-  private readonly assortments = [
-    { id: 1, value: 'klepki bukowe' },
-    { id: 2, value: 'klepki sosnowe' },
-    { id: 3, value: 'brzoza' },
-    { id: 4, value: 'sosna' },
-    { id: 5, value: 'dąb' },
-    { id: 6, value: 'buk' },
-    { id: 7, value: 'jesion' },
-    { id: 8, value: 'olcha' },
-    { id: 9, value: 'świerk' }
+  public readonly assortments = [
+    { id: 1, name: 'klepki bukowe' },
+    { id: 2, name: 'klepki sosnowe' },
+    { id: 3, name: 'brzoza' },
+    { id: 4, name: 'sosna' },
+    { id: 5, name: 'dąb' },
+    { id: 6, name: 'buk' },
+    { id: 7, name: 'jesion' },
+    { id: 8, name: 'olcha' },
+    { id: 9, name: 'świerk' }
   ];
 
   constructor(
